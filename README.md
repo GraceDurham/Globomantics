@@ -19,3 +19,19 @@ Install Home Brew with
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 $ brew install python3
 ```
+
+#### 3. Setting up a Virtual Environment and running it on Command Line  
+```
+$ pip install virtualenv
+$ python3 -m venv Globomantics
+$ cd Globomantics
+$ . bin/activate
+
+```
+
+
+#### 4. Installing Django 
+```
+$ pip install django
+
+```
