@@ -35,3 +35,11 @@ $ . bin/activate
 $ pip install django
 
 ```
+
+#### 5. Start Django project globomantics from django-admin
+```
+
+ $ django-admin startproject globomantics
+ 
+ ```
+ 
