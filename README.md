@@ -7,7 +7,7 @@
 ```
 Open terminal 
 Change the current working directory to the location where you want the cloned directory.
-$ git clone 
+$ git clone https://github.com/GraceDurham/Globomantics.git
 
 ```
 
