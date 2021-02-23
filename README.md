@@ -20,7 +20,7 @@ $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/inst
 $ brew install python3
 ```
 
-#### 3. Setting up a Virtual Environment and running it on Command Line  
+#### 3. Setting up a Virtual Environment and activating it on Command Line  
 ```
 $ pip install virtualenv
 $ python3 -m venv Globomantics
@@ -30,9 +30,9 @@ $ . bin/activate
 ```
 
 
-#### 4. Installing Django 
+#### 4. Install System Dependancies 
 ```
-$ pip install django
+$ pip install -r requirements.txt
 
 ```
 
