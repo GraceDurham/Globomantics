@@ -19,4 +19,5 @@ from django.urls import  include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('store/', include('store.urls')),
+    # Ties stores.urls web url app configuration to project globomantics.url configuration
 ]
