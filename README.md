@@ -36,10 +36,11 @@ $ pip install -r requirements.txt
 
 ```
 
-#### 5. Start Django project globomantics from django-admin
+#### 5. Run server
 ```
 
- $ django-admin startproject globomantics
+ $ python manage.py runserver 8080
+
  
  ```
  
