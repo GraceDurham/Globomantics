@@ -5,6 +5,6 @@ from . import views
 
 urlpatterns = [
 	path('', views.index, name='index'),
-	path('1', views.detail, name='detail'),
+	repath(r'^\d+', views.detail, name='detail'),
 
 ]
