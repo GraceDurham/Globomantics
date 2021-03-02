@@ -18,10 +18,18 @@ def detail(request):
 @cache_page(900)
 @require_http_methods(["GET"])
 def electronics(request):
+
+	items = ("Windows PC", "Apple Mac", "Apple iphone", "Lenovo", "Samsung", "Google")
+	
 	if request.method == 'GET':
-		print(request.headers)
-		print("----------\n", request)
-		return HttpResponse("Hello there, globomantics e-commerce store front Electronics page coming here soon")
+		paginator = Paginator(items, 2)
+		pages = request.GET.get('page', 1)
+		
+		try:
+			items = paginator.page(pages)
+		except PageNotAnInteger:
+			items = paginator.page(1)
+		return render(request, 'store/list.html', {'items':items})
 
 	elif request.method == 'POST':
 		return HttpResponseNotFound("Post method is not allowed")
