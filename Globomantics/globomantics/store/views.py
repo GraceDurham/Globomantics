@@ -4,6 +4,7 @@ from django.urls import path
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.cache import cache_page
+from django.core.paginator import Paginator
 # Create your views here.
 from django.http import HttpResponse, HttpResponseNotFound
 
