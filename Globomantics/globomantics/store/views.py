@@ -44,4 +44,14 @@ class ElectronicsView2(TemplateView):
 		context = {'items': items}
 		return context
 
+
+class ElectronicsView3(ListView):
+	template_name = 'store/list.html' #1. Mention name of template file
+	queryset = ("Windows PC", "Apple Mac", "Apple iphone", "Lenovo", "Samsung", "Google")
+	#2 Show hard core data this will usually be a query to the database
+	context_object_name = 'items'
+	#3 Mention name of context object that will be used in the template file
+
+
+
 	
