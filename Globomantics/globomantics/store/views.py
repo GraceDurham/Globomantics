@@ -2,6 +2,7 @@ from django.core.exceptions import ViewDoesNotExist
 from django.shortcuts import render
 from django.urls import path
 from django.views.generic.base import View, TemplateView
+from django.views.generic.list import ListView
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.cache import cache_page
@@ -51,7 +52,7 @@ class ElectronicsView3(ListView):
 	#2 Show hard core data this will usually be a query to the database
 	context_object_name = 'items'
 	#3 Mention name of context object that will be used in the template file
-
+	paginate_by = 2
 
 
 	
