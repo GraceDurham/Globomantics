@@ -60,6 +60,18 @@ class ElectronicsView(View):
 	def process(self):
 		print("We are processing Electronics")
 
+
+class ComputersView(ElectronicsView):
+	def process(self):
+		print("We are processing Computers")
+
+class MobileView():
+	def process(self):
+		print("We are processing Mobile phones")
+
+class EquipmentView(MobileView, ComputersView):
+	pass
+
 class ElectronicsView2(TemplateView):
 	template_name = "store/list.html"
 
