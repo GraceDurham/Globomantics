@@ -1,14 +1,19 @@
+from django.views import View
 from django.core.exceptions import ViewDoesNotExist
+from django.core.paginator import Paginator, PageNotAnInteger
 from django.shortcuts import render
 from django.urls import path
-from django.views.generic.base import View, TemplateView
-from django.views.generic.list import ListView
+from django.views.decorators.cache import cache_control, cache_page
 from django.views.decorators.csrf import csrf_exempt
-from django.views.decorators.http import require_http_methods
-from django.views.decorators.cache import cache_page
-from django.core.paginator import Paginator
+
+
+
 # Create your views here.
 from django.http import HttpResponse, HttpResponseNotFound
+
+from django.views.decorators.gzip import gzip_page
+from django.views.generic import ListView, TemplateView
+from django.views.decorators.http import require_http_methods
 
 
 def index(request):
@@ -19,7 +24,21 @@ def detail(request):
 
 @csrf_exempt
 @cache_page(900)
+@gzip_page
 @require_http_methods(["GET"])
+
+def electronics(request):
+	items = ("Windows PC", "Apple Mac", "Apple iphone", "Lenovo", "Samsung", "Google")
+	if request.method == 'GET':
+		paginator = Paginator(items, 2)
+		pages = request.GET.get('page', 1)
+		try: 
+			items = paginator.page(pages)
+		except PageNotAnInteger:
+			items = paginator.page(1)
+		return render(request, 'store/list.html', {'items':items})
+	elif request.method == 'POST':
+		return HttpResponseNotFound("Page Not Found")
 
 class ElectronicsView(View):
 
@@ -27,7 +46,7 @@ class ElectronicsView(View):
 		items = ("Windows PC", "Apple Mac", "Apple iphone", "Lenovo", "Samsung", "Google")
 		paginator = Paginator(items, 2)
 		pages = request.GET.get('page', 1)
-
+		self.process()
 
 		try:
 
@@ -36,6 +55,10 @@ class ElectronicsView(View):
 			items= paginator.page(1)
 
 		return render(request, 'store/list.html', {'items': items})
+
+
+	def process(self):
+		print("We are processing Electronics")
 
 class ElectronicsView2(TemplateView):
 	template_name = "store/list.html"
