@@ -7,7 +7,8 @@
 <body>
 
 
-<h1>Hello there, You have visited the Globomantics store {{ request.COOKIES.visits|default:"1" }} times</h1>
+<h1>Hello there, {{ request.session.customer }} visited the Globomantics store {{ request.COOKIES.visits|default:"1" }} times</h1>
+
 <table class="table table-bordered">
 	<thead>
 		<tr>
@@ -69,6 +70,7 @@
 	 </tr>
 	{% endif %}
 </table>
+<a href="/logout">Logout</a>
 
 </body>
 </html>

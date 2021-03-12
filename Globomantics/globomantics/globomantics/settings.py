@@ -101,14 +101,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-SESSION_ENGINE = "Django.contrib.sessions.backends.cache"
+# SESSION_ENGINE = "Django.contrib.sessions.backends.cache"
 
-CACHES = {
-    'default':{
-        'BACKEND':'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION':'127.0.0.1:8008',
-    }
-}
+# CACHES = {
+#     'default':{
+#         'BACKEND':'django.core.cache.backends.memcached.MemcachedCache',
+#         'LOCATION':'127.0.0.1:8008',
+#     }
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
