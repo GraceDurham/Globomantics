@@ -33,10 +33,14 @@ def electronics(request):
 	if request.method == 'GET':
 		paginator = Paginator(items, 2)
 		pages = request.GET.get('page', 1)
+		name = "Sharu" # name of user logging into website hard coded but usually you make a database call to fetch creditionals or user name you want to display 
 		try: 
 			items = paginator.page(pages)
 		except PageNotAnInteger:
 			items = paginator.page(1)
+		if not request.session.has_key('customer'): # Check if there is a session for that user if not than set a session key customer and value is their name
+			request.session['customer'] = name
+			print("Session value set")
 		response = render(request, 'store/list.html', {'items':items})
 		if request.COOKIES.get('visits'):
 			value = int(request.COOKIES.get('visits'))
