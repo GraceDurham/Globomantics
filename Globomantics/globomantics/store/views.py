@@ -22,6 +22,16 @@ def index(request):
 def detail(request):
 	return HttpResponse("Hello there, globomantics e-commerce store front detail pages coming here")
 
+def logout(request):
+	try:
+		del request.session['customer']
+	except KeyError:
+		print("Error while logging out")
+	return HttpResponse("Your logged out.")
+
+
+
+
 @csrf_exempt
 @cache_page(900)
 @gzip_page
